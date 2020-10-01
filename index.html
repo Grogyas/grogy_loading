@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ace</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+    <script type="text/javascript" src="js/text.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+</head>
+
+<body id="dvImage">
+    <h1 class="ml4">
+        <span class="letters letters-1">Eat</span>
+        <span class="letters letters-2">Sleep</span>
+        <span class="letters letters-3">RolePlay</span>
+        <span class="letters letters-4">Repeat</span>
+    </h1>
+    <div><img class="logo" src='img/logo.png' style='width:400px;height:400px'></div>
+    <img src="img/cursor.png" alt="cursor" id="cursor">
+
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+                <img src="img/hudba.png" width="30px" height="30px">
+                <span></span>
+            </label>
+
+        <ul class="menu__box">
+
+            <div id="app-cover">
+                <div id="player">
+                    <div id="player-track">
+                        <div id="album-name"></div>
+                        <div id="track-name"></div>
+                        <div id="track-time">
+                            <div id="current-time"></div>
+                            <div id="track-length"></div>
+                        </div>
+                        <div id="s-area">
+                            <div id="ins-time"></div>
+                            <div id="s-hover"></div>
+                            <div id="seek-bar"></div>
+                        </div>
+                    </div>
+                    <div id="player-content">
+                        <div id="album-art">
+                            <img src="https://s.mxmcdn.net/images-storage/albums/2/5/0/8/1/9/31918052_800_800.jpg" class="active" id="_1">
+                            <img src="https://lh3.googleusercontent.com/caonriSPCNIZECFngF2Y6cc_kHVoHYrPdN_d9dar42tqbCqYNMJ0Nb0vKBAZFAriipdnAm8iqc7kaes=w544-h544-l90-rj" id="_2">
+                            <img src="https://lh3.googleusercontent.com/ewcrcn_dv6u5PoGKRDWm4S8n6q5DUGLl1bXKOvFa9Ka9XwPbBjCLNGRihXrZVwkcdrWO7TqsQW5vqeS3=w544-h544-l90-rj" id="_3">
+                            <img src="https://lh3.googleusercontent.com/gPKLrY-TQcySyQhg7FjV6Kw76ggRmaeAeEYB3YELZm7-iOXar4BZ7HQPEr5MKKyMChpfBvdxe-lDRTw=w544-h544-l90-rj" id="_4">
+                            <img src="https://lh3.googleusercontent.com/q7S-lHKjbHTYzcGzzGwQ1UTepqY_8jooMpdhj4j-jyLXI-r5m6YKPVFhS9n42Mi0tTnxtZXBC-cYv-0K5Q=w544-h544-l90-rj" id="_5">
+                            <div id="buffer-box">Načítání ...</div>
+                        </div>
+                        <div id="player-controls">
+                            <div class="control">
+                                <div class="button" id="play-previous">
+                                    <i class="fas fa-backward"></i>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <div class="button" id="play-pause-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <div class="button" id="play-next">
+                                    <i class="fas fa-forward"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+    <div class="loadbar">
+
+        <div class="progressBar"></div>
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        function ffalse() {
+            return false;
+        }
+
+        function ftrue() {
+            return true;
+        }
+
+        document.onselectstart = new Function("return false");
+        if (window.sidebar) {
+            document.onmousedown = ffalse;
+            document.onclick = ftrue;
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).mousemove(function(e) {
+            $("#cursor").css({
+                left: e.pageX,
+                top: e.pageY
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        var images = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"];
+        $(function() {
+            var i = 0;
+            $("#dvImage").css("background-image", "url(img/" + images[i] + ")");
+            setInterval(function() {
+                i++;
+                if (i == images.length) {
+                    i = 0;
+                }
+                $("#dvImage").fadeOut("7000", function() {
+                    $(this).css("background-image", "url(img/" + images[i] + ")");
+                    $(this).fadeIn("7000");
+                });
+            }, 25000);
+        });
+    </script>
+</body>
+
+</html>
