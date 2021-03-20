@@ -12,3 +12,5 @@ Including
 · Changing Background
 · Progress Bar
 · Animated Text
+
+AutoPlay Version · https://github.com/Grogyas/grogy_loading/tree/autoplay
