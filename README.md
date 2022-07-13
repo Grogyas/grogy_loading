@@ -1,5 +1,7 @@
 # DEPRECATED
 
+This is no longer supported, please consider using loading_v2 instead.
+
 Hi, I would like to share in the community this minimalist loading screen, what I did today, contains basic things
  
 FiveM Forum
